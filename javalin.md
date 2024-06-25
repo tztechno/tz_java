@@ -4,6 +4,58 @@ javalin
 ---
 ---
 ---
+
+以下に、Gradleを使ってJavaプロジェクトにJavalinフレームワークをインストールし、`myapp` フォルダに配置された `index.html` をホストする方法を説明します。
+
+### 手順
+
+1. **Gradleのインストール**
+2. **Gradleプロジェクトの初期化**
+3. **Javalinの依存関係を追加**
+4. **プロジェクト構造の作成**
+5. **Javalinアプリケーションの実装**
+6. **静的ファイルのホスト**
+
+### 1. Gradleのインストール
+
+まず、Gradleをインストールします。Gradleのインストール方法は公式サイトの[インストールガイド](https://gradle.org/install/)を参照してください。
+
+### 2. Gradleプロジェクトの初期化
+
+以下のコマンドを実行して、Gradleプロジェクトを初期化します。
+
+```bash
+gradle init --type java-application
+```
+
+これにより、基本的なプロジェクト構造が生成されます。
+
+### 3. Javalinの依存関係を追加
+
+`build.gradle` ファイルを開き、Javalinの依存関係を追加します。以下のように設定します。
+
+```gradle
+plugins {
+    id 'application'
+    id 'java'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'io.javalin:javalin:5.0.1' // 最新バージョンに合わせて変更
+}
+
+application {
+    mainClassName = 'com.example.myapp.Main'
+}
+```
+
+
+
+
 ---
 
 `Main.java` の階層を浅くするために、プロジェクトのディレクトリ構造をシンプルにし、`Main.java` をプロジェクトのルートに近い場所に配置します。以下に示すのは、`Main.java` を浅い階層に配置した構成です。
